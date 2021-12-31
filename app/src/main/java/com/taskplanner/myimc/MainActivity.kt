@@ -3,15 +3,9 @@ package com.taskplanner.myimc
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.View.VISIBLE
-import android.widget.Button
-import android.widget.TextView
 import android.widget.Toast
-import androidx.cardview.widget.CardView
-import androidx.constraintlayout.widget.ConstraintLayout
-import com.google.android.material.switchmaterial.SwitchMaterial
-import com.google.android.material.textfield.TextInputEditText
+import androidx.lifecycle.Observer
 import com.taskplanner.myimc.databinding.ActivityMainBinding
 import java.math.RoundingMode
 import java.text.DecimalFormat
@@ -35,19 +29,28 @@ class MainActivity : AppCompatActivity() {
                      applicationContext,
                      "Preencha os dois campos",
                      Toast.LENGTH_SHORT).show()
+
              } else {
+                 val checkSystem = binding.systemSwitch.isChecked
                  val weightInput = binding.weightInput.text.toString().toFloat()
                  val heightInput = binding.heightInput.text.toString().toFloat()
 
-                 calculateImc(weightInput, heightInput)
+                 calculateImc(weightInput, heightInput, checkSystem)
                  binding.resultCv.visibility = VISIBLE
              }
          }
     }
 
 
-    fun calculateImc(weight: Float, height:Float){
-        val resultImc = roundNumber(weight / (height * height))
+    fun calculateImc(weight: Float, height:Float, system: Boolean){
+
+        var resultImc: Float
+
+        if(system) {
+            resultImc = roundNumber((weight /(height * height)) * 703)
+        } else {
+            resultImc = roundNumber(weight / (height * height))
+        }
 
         binding.indexResult.text = resultImc.toString()
 
@@ -84,7 +87,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun roundNumber(number:Float): Float{
-        val df = DecimalFormat("#,##")
+        val df = DecimalFormat("0.00")
         df.roundingMode = RoundingMode.CEILING
         return df.format(number).toFloat()
     }

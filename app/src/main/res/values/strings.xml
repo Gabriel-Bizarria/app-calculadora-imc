@@ -5,4 +5,13 @@
     <string name="phrase2">Você está extremamente abaixo do peso!</string>
     <string name="phrase3">Você está acima do peso ideal!</string>
     <string name="phrase4">Você está obeso!</string>
+    <string name="app_title">MyIMC</string>
+    <string name="weight_input">PESO (ex: 65.2)</string>
+    <string name="height_input">ALTURA (ex: 1.67)</string>
+    <string name="system_switch">Sistema Imperial</string>
+    <string name="calculate_button">Calcular</string>
+    <string name="bmi">IMC:</string>
+    <string name="phrase_about">Seu IMC está ótimo</string>
+    <string name="bmi_index">23.2</string>
+    <string name="read_about_button">Entenda mais sobre</string>
 </resources>
