@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyIMC</string>
+    <string name="phraseGreat">Você está no seu peso ideal!</string>
+    <string name="phrase1">Você está abaixo do peso ideal!</string>
+    <string name="phrase2">Você está extremamente abaixo do peso!</string>
+    <string name="phrase3">Você está acima do peso ideal!</string>
+    <string name="phrase4">Você está obeso!</string>
+</resources>
